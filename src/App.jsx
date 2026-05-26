@@ -37,7 +37,7 @@ export default function App() {
             className="font-mono text-[10px] tracking-[0.1em]"
             style={{ color: "rgba(245,240,232,0.25)" }}
           >
-            © 2026
+            © {new Date().getFullYear()}
           </span>
         </div>
 
@@ -93,7 +93,7 @@ export default function App() {
             className="font-mono text-[9px] tracking-[0.15em] uppercase"
             style={{ color: "rgba(245,240,232,0.18)" }}
           >
-            Anshuman Kharbade — Creator — 2026
+            Anshuman Kharbade — Creator — {new Date().getFullYear()}
           </p>
         </footer>
 
