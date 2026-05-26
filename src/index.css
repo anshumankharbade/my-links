@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0f0e0c;
+    color: #f5f0e8;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.4;
+  }
+
+  .progress-bar-fill {
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: fill-in 1.8s cubic-bezier(0.2,0,0,1) forwards;
+  }
+
+  .link-bar::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: #c8842a;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s cubic-bezier(0.2,0,0,1);
+    border-radius: 2px;
+  }
+  .link-bar:hover::before {
+    transform: scaleY(1);
+  }
+
+  .link-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(200,132,42,0.06);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .link-glow:hover::after {
+    opacity: 1;
+  }
+}
+
+@keyframes fill-in {
+  to { transform: scaleX(1); }
+}
+
+@keyframes drift {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(30px,40px) scale(1.05); }
+}
+
+@keyframes ring-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.04); opacity: 0.7; }
+}
+
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
