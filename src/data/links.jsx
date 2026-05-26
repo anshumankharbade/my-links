@@ -38,7 +38,7 @@ export const links = [
   {
     name: "LinkedIn",
     handle: "anshuman-kharbade",
-    url: "https://www.linkedin.com/in/anshuman-kharbade",
+    url: "https://www.linkedin.com/in/anshuman-kharbade?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     icon: (
       <svg
         width="17"
